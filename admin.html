@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#090711">
+  <title>Painel de Reservas | VIDEOKE</title>
+  <link rel="stylesheet" href="css/style.css">
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="js/config.js" defer></script>
+  <script src="js/admin.js" defer></script>
+</head>
+<body class="admin-body">
+  <header class="site-header">
+    <div class="container nav-wrap">
+      <a class="brand" href="index.html"><span class="brand-mark">V</span><span class="brand-name">VIDEO<span>KE</span><small>PAINEL DE RESERVAS</small></span></a>
+      <a class="nav-cta" href="index.html">Ver site</a>
+    </div>
+  </header>
+  <main class="container admin-main">
+    <div class="admin-header">
+      <div><span class="eyebrow">GESTÃO DE LOCAÇÕES</span><h1>Reservas <span style="color:var(--red)">VIDEOKE</span></h1><p style="color:var(--muted);margin:0">Consulte solicitações, confirme reservas e libere datas.</p></div>
+      <button class="button button-ghost" id="sign-out" hidden>Sair</button>
+    </div>
+
+    <section class="admin-panel" id="login-panel">
+      <h2>Acesso do locador</h2>
+      <p style="color:var(--muted);font-size:13px">Entre com o usuário e a senha cadastrados no Supabase Auth.</p>
+      <form id="login-form" class="admin-form">
+        <label>E-mail<input id="login-email" type="email" autocomplete="username" required></label>
+        <label>Senha<input id="login-password" type="password" autocomplete="current-password" required></label>
+        <div class="full"><button class="button button-primary" type="submit">Entrar no painel</button></div>
+      </form>
+      <p id="login-message" class="admin-message" role="status"></p>
+    </section>
+
+    <section class="admin-panel" id="dashboard-panel" hidden>
+      <div style="display:flex;justify-content:space-between;align-items:center;gap:15px;flex-wrap:wrap">
+        <h2 style="margin:0">Solicitações e reservas</h2>
+        <button class="button button-ghost" id="refresh-bookings">Atualizar lista</button>
+      </div>
+      <p id="dashboard-message" class="admin-message" role="status"></p>
+      <div id="booking-list" class="booking-list"></div>
+    </section>
+  </main>
+</body>
+</html>
